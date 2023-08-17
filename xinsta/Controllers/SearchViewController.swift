@@ -10,13 +10,17 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UIColl
     var images: [UIImage] = [
         UIImage(named: "mong1")!,
         UIImage(named: "mong2")!,
-        UIImage(named: "mong3")!
+        UIImage(named: "mong3")!,
+        UIImage(named: "다운로드")!,
+        UIImage(named: "멈추는법을 모르는 토끼")!,
+        UIImage(named: "너구리")!
     ]
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return images.count
     }
     
+
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
@@ -49,7 +53,24 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UIColl
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let image = images[indexPath.row]
-        return CGSize(width: image.size.width, height: image.size.height)
+        let collectionViewWidth = collectionView.bounds.width
+        let cellItemForRow: CGFloat = 3
+        let minimumSpacing: CGFloat = 2
+        let width = (collectionViewWidth - (cellItemForRow - 1) * minimumSpacing) / cellItemForRow
+                
+        return CGSize(width: width, height: width)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 1  // 세로 간격
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 1  // 가로 간격
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)  // 여백 설정
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {

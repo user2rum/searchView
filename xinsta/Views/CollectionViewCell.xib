@@ -25,7 +25,7 @@
             </collectionViewCellContentView>
             <size key="customSize" width="128" height="119"/>
             <connections>
-                <outlet property="collectionViewCell" destination="Q3K-Qf-1de" id="KxH-Sy-0bs"/>
+                <outlet property="collectionViewCell" destination="Q3K-Qf-1de" id="hPY-wr-Mj7"/>
             </connections>
             <point key="canvasLocation" x="348.09160305343511" y="-32.394366197183103"/>
         </collectionViewCell>
